@@ -4,7 +4,22 @@
 */
 
 function isPalindrome(str) {
+  if (str.length < 2) {
+    return true;
+  }
+  let start = 0;
+  let end = str.length - 1;
+  while (start < end) {
+    if (str[start].toLowerCase() !== str[end].toLowerCase()) {
+      return false;
+    }
+    start++;
+    end--;
+  }
   return true;
 }
+
+// Check Palindrome
+// console.log(isPalindrome("Nan")); // true
 
 module.exports = isPalindrome;
