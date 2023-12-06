@@ -35,6 +35,10 @@ class Calculator {
   }
   // divide: takes a number and divide it to the result
   divide(num) {
+    // takle divide by zero error
+    if (num === 0) {
+      throw new Error("Cannot divide by zero");
+    }
     this.result /= num;
   }
   // clear: makes the `result` variable to 0
@@ -53,23 +57,22 @@ class Calculator {
     //   2. the input can have invalid non-numerical characters like `5 + abc`, you're supposed to throw error for such inputs
     // remove all spaces
     expression = expression.replace(/\s/g, "");
-    // check if expression has any invalid characters
-    const regex = /[^\d\+\-\*\/\(\)]/g;
-    if (regex.test(expression)) {
-      throw new Error("Invalid Expression");
-    }
     // evaluate the expression
     this.result = eval(expression);
+    if (this.result === Infinity) {
+      throw new Error("Cannot divide by zero");
+    }
     return this.result;
   }
 }
 
-// Test Calculator
-const calc = new Calculator();
-calc.add(10); // 10
-calc.subtract(5); // 5
-calc.multiply(2); // 10
-calc.divide(2); // 5
-console.log(calc.getResult()); // 5
+// const calc = new Calculator();
+// calc.add(10); // 10
+// calc.subtract(5); // 5
+// calc.multiply(2); // 10
+// calc.divide(2); // 5
+// console.log(calc.getResult()); // 5
+// console.log(calc.calculate("(2.5 + 1.5) * 3"));
+// console.log(calc.calculate("10/0"));
 
 module.exports = Calculator;
