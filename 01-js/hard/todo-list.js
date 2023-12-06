@@ -24,6 +24,10 @@ class Todo {
   }
   // update(index, updatedTodo): update todo at given index
   update(index, updatedTodo) {
+    // if index is invalid, return
+    if (index < 0 || index >= this.todos.length) {
+      return;
+    }
     this.todos[index] = updatedTodo;
   }
   // getAll: returns all todos
@@ -32,6 +36,10 @@ class Todo {
   }
   // get(indexOfTodo): returns todo at given index
   get(indexOfTodo) {
+    // if index invalid, return null
+    if (indexOfTodo < 0 || indexOfTodo >= this.todos.length) {
+      return null;
+    }
     return this.todos[indexOfTodo];
   }
   // clear: deletes all todos
@@ -41,17 +49,17 @@ class Todo {
 }
 
 // test todo
-const todo = new Todo();
-todo.add("Buy Milk");
-todo.add("Buy Eggs");
-todo.add("Buy Bread");
-console.log(todo.getAll()); // [ 'Buy Milk', 'Buy Eggs', 'Buy Bread' ]
-todo.remove(1);
-console.log(todo.getAll()); // [ 'Buy Milk', 'Buy Bread' ]
-todo.update(1, "Buy Cheese");
-console.log(todo.getAll()); // [ 'Buy Milk', 'Buy Cheese' ]
-console.log(todo.get(1)); // Buy Cheese
-todo.clear();
-console.log(todo.getAll()); // []
+// const todo = new Todo();
+// todo.add("Buy Milk");
+// todo.add("Buy Eggs");
+// todo.add("Buy Bread");
+// console.log(todo.getAll()); // [ 'Buy Milk', 'Buy Eggs', 'Buy Bread' ]
+// todo.remove(1);
+// console.log(todo.getAll()); // [ 'Buy Milk', 'Buy Bread' ]
+// todo.update(1, "Buy Cheese");
+// console.log(todo.getAll()); // [ 'Buy Milk', 'Buy Cheese' ]
+// console.log(todo.get(1)); // Buy Cheese
+// todo.clear();
+// console.log(todo.getAll()); // []
 
 module.exports = Todo;
