@@ -7,6 +7,10 @@ function isPalindrome(str) {
   if (str.length < 2) {
     return true;
   }
+  // remove all spaces
+  str = str.replace(/\s/g, "");
+  // remove all punctuation marks
+  str = str.replace(/[^\w\s]/gi, "");
   let start = 0;
   let end = str.length - 1;
   while (start < end) {
