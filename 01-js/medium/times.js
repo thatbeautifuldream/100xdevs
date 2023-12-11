@@ -11,6 +11,7 @@ There is no automated test for this one, this is more for you to understand time
 function calculateTime(n) {
   // track start time
   let start = Date.now();
+  // console.log({ start });
   // calculate sum from 1 to n
   let sum = 0;
   for (let i = 1; i <= n; i++) {
@@ -18,8 +19,10 @@ function calculateTime(n) {
   }
   // return the time taken
   let end = Date.now();
+  // console.log({ end });
   const timeTaken = end - start;
-  return timeTaken;
+  const timeTakenInSeconds = timeTaken / 1000;
+  return timeTakenInSeconds;
 }
 
 // Test timetaken by the function

@@ -47,4 +47,23 @@ function isAnagram(str1, str2) {
 
 // console.log(isAnagram("lisTen", "Silent")); // true
 
+function isAnagramWithReduce(str1, str2) {
+  // using array prototype method reduce
+  // convert both strings to lowercase
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+  // convert first string to array
+  const arr = str1.split("");
+  // loop through second string
+  for (let i = 0; i < str2.length; i++) {
+    // if character is not in array then return false
+    if (!arr.includes(str2[i])) {
+      return false;
+    } else {
+      // if character is in array then remove it
+      arr.splice(arr.indexOf(str2[i]), 1);
+    }
+  }
+}
+
 module.exports = isAnagram;
