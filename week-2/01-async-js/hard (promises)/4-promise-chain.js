@@ -6,7 +6,7 @@
  */
 
 function waitOneSecond() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       console.log("1 second has passed.");
       resolve();
@@ -15,7 +15,7 @@ function waitOneSecond() {
 }
 
 function waitTwoSecond() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       console.log("2 seconds have passed.");
       resolve();
@@ -24,7 +24,7 @@ function waitTwoSecond() {
 }
 
 function waitThreeSecond() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       console.log("3 seconds have passed.");
       resolve();
@@ -47,3 +47,20 @@ function calculateTime() {
 }
 
 calculateTime();
+
+// function calculateTime2() {
+//   var start = Date.now();
+//   waitOneSecond().then(() =>
+//     waitTwoSecond().then(() =>
+//       waitThreeSecond().then(() => {
+//         console.log(
+//           "All promises have resolved after " +
+//             (Date.now() - start) / 1000 +
+//             " seconds."
+//         );
+//       })
+//     )
+//   );
+// }
+
+// calculateTime2();
